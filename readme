@@ -1,0 +1,15 @@
+Usage:
+```
+const asyncCall = (callback) => {
+   setTimeout(callback,1000);
+};
+
+const queue = new AsyncQueue();
+
+for(let i = 0; i < 5; i++) {
+	queue.push(next => asyncCall(() => {
+		console.log(i);
+		next();	
+	});
+}
+```
